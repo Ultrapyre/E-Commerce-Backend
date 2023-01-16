@@ -20,8 +20,8 @@ Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
     unique: false
-  },
-  foreignKey: 'tag_id'
+    },  
+    foreignKey: 'product_id' //Note to self: Without a foreignKey sequelize generates extra underscore-less fields in api calls. Make sure this is here!       
 })
 
 // Tags belongToMany Products (through ProductTag)
@@ -30,7 +30,7 @@ Tag.belongsToMany(Product, {
     model: ProductTag,
     unique: false
   },
-  foreignKey: 'product_id'
+  foreignKey: 'tag_id'
 })
 
 module.exports = {
